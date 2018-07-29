@@ -1,0 +1,10 @@
+
+// font variables are just exposing those we've configured with bootstrap - see _bootstrap.scss
+$font-size-base:              .9rem; // normal default would be 16px, or 1rem
+$font-size-lg:                ($font-size-base * 1.25);
+$font-size-sm:                ($font-size-base * .875);
+$font-size-xs:                ($font-size-base * .75);
+
+$font-weight-light:           250;
+$font-weight-normal:          400;
+$font-weight-bold:            500;

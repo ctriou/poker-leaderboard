@@ -1,0 +1,35 @@
+@import 'includes/variables';
+
+$table-cell-padding: .3rem;
+
+// $body-bg: $goose-100;
+// $body-color: $viero-800;
+$font-size-base: $font-size-base;
+// $headings-font-weight: $font-weight-normal;
+
+// $primary:       $seagull-500;
+// $secondary:     $viero-500;
+// $success:       $parakeet-500;
+// $info:          $seagull-300;
+// $warning:       $meadowlark-500;
+// $danger:        $flamingo-500;
+// $light:         $viero-200;
+// $dark:          $viero-800;
+
+// $theme-colors: (
+//     "primary": $seagull-500,
+//     "secondary": $viero-500,
+//     "success": $parakeet-500,
+//     "info": $seagull-300,
+//     "warning": $meadowlark-500,
+//     "danger": $flamingo-500,
+//     "light": $viero-200,
+//     "dark": $viero-800
+// );
+
+// All
+@import '~bootstrap/scss/bootstrap';
+
+th {
+    font-weight: inherit;
+}
