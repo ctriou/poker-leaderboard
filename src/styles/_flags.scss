@@ -5,72 +5,72 @@
     margin-right: 3px;
 }
 
-.flag-usa {
-    @include flag;
-    background-image: url("/assets/flags/us.png");
-}
-
-.flag-can {
-    @include flag;
-    background-image: url("/assets/flags/ca.png");
-}
-
-.flag-deu {
-    @include flag;
-    background-image: url("/assets/flags/de.png");
-}
-
-.flag-gbr {
-    @include flag;
-    background-image: url("/assets/flags/gb.png");
-}
-
-.flag-nld {
-    @include flag;
-    background-image: url("/assets/flags/nl.png");
-}
-
-.flag-fra {
-    @include flag;
-    background-image: url("/assets/flags/fr.png");
-}
-
-.flag-swe {
-    @include flag;
-    background-image: url("/assets/flags/se.png");
-}
-
-.flag-dnk {
-    @include flag;
-    background-image: url("/assets/flags/dk.png");
-}
-
-.flag-ita {
-    @include flag;
-    background-image: url("/assets/flags/it.png");
-}
-
-.flag-prt {
-    @include flag;
-    background-image: url("/assets/flags/pt.png");
-}
-
-.flag-bel {
-    @include flag;
-    background-image: url("/assets/flags/be.png");
-}
-
-.flag-rus {
-    @include flag;
-    background-image: url("/assets/flags/ru.png");
-}
-
-.flag-lbn {
-    @include flag;
-    background-image: url("/assets/flags/lb.png");
-}
-
 .flag-aus {
     @include flag;
-    background-image: url("/assets/flags/au.png");
+    background-image:url(/assets/flags/au.png);
+}
+    
+.flag-bel {
+    @include flag;
+    background-image:url(/assets/flags/be.png);
+}
+    
+.flag-can {
+    @include flag;
+    background-image:url(/assets/flags/ca.png);
+}
+    
+.flag-deu {
+    @include flag;
+    background-image:url(/assets/flags/de.png);
+}
+    
+.flag-dnk {
+    @include flag;
+    background-image:url(/assets/flags/dk.png);
+}
+    
+.flag-fra {
+    @include flag;
+    background-image:url(/assets/flags/fr.png);
+}
+    
+.flag-gbr {
+    @include flag;
+    background-image:url(/assets/flags/gb.png);
+}
+    
+.flag-ita {
+    @include flag;
+    background-image:url(/assets/flags/it.png);
+}
+    
+.flag-lbn {
+    @include flag;
+    background-image:url(/assets/flags/lb.png);
+}
+    
+.flag-nld {
+    @include flag;
+    background-image:url(/assets/flags/nl.png);
+}
+    
+.flag-prt {
+    @include flag;
+    background-image:url(/assets/flags/pt.png);
+}
+    
+.flag-rus {
+    @include flag;
+    background-image:url(/assets/flags/ru.png);
+}
+    
+.flag-swe {
+    @include flag;
+    background-image:url(/assets/flags/se.png);
+}
+    
+.flag-usa {
+    @include flag;
+    background-image:url(/assets/flags/us.png);
 }

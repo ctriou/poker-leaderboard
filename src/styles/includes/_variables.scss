@@ -1,4 +1,13 @@
 
+$app-blue: #38b6ef;
+$app-purple: #ba68c8;
+$app-green: #4caf50;
+$app-red: #f44336;
+$app-yellow: #ffc107;
+$app-info: #009688;
+$app-light: #f8f9fa;
+$app-dark: #343a40;
+
 // font variables are just exposing those we've configured with bootstrap - see _bootstrap.scss
 $font-size-base:              .9rem; // normal default would be 16px, or 1rem
 $font-size-lg:                ($font-size-base * 1.25);

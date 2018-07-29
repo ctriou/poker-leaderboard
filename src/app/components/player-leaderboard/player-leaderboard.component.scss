@@ -1,5 +1,34 @@
 @import "../../../styles/includes/variables";
 
-tbody > tr:hover {
+$mean: #d3e8f1;
+$median: #e8dcea;
+
+.edit-column {
     cursor: pointer;
+
+    &:hover {
+        color: $app-blue;
+    }
+}
+
+
+.mean {
+    background-color: #d3e8f1;
+}
+
+.median {
+    background-color: #e8dcea;
+}
+
+@mixin color-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.color-legend .mean, 
+.color-legend .median {
+    @include color-box;
 }
