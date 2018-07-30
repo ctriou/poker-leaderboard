@@ -58,12 +58,11 @@ export class PlayerLeaderboardComponent implements OnInit {
       });
 
       var start = (this.page - 1) * this.pageSize,
-        end = start + this.pageSize;
+        end = start + this.pageSize,
+        winnings = players.map(p => p.winnings);
 
-      var winnings = players.map(p => p.winnings);
-
-      this.meanWinnings = this.mathService.mean(winnings),
-        this.medianWinnings = this.mathService.median(winnings);
+      this.meanWinnings = this.mathService.mean(winnings);
+      this.medianWinnings = this.mathService.median(winnings);
 
       this.meanPlayer = this.playerService.getClosestByWinnings(players, this.meanWinnings);
       this.medianPlayer = this.playerService.getClosestByWinnings(players, this.medianWinnings);
