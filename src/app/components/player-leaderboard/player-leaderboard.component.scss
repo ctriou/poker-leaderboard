@@ -4,20 +4,25 @@ $mean: #d3e8f1;
 $median: #e8dcea;
 
 .edit-column {
-    cursor: pointer;
 
-    &:hover {
-        color: $app-blue;
+    .fas {
+        // increase click area of icons
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .fas:hover {
+        cursor: pointer;
+        color: #9da7b1;
     }
 }
 
-
 .mean {
-    background-color: #d3e8f1;
+    background-color: $mean;
 }
 
 .median {
-    background-color: #e8dcea;
+    background-color: $median;
 }
 
 @mixin color-box {
@@ -25,7 +30,7 @@ $median: #e8dcea;
     height: 20px;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .color-legend .mean, 

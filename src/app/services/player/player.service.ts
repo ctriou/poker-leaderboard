@@ -29,6 +29,11 @@ export class PlayerService {
     return this.http.post<Player>(this.playersUrl, player, this.httpOptions);
   }
 
+  removePlayer(player: Player): Observable<Player> {
+    const url = `${this.playersUrl}/${player.id}`;
+    return this.http.delete<Player>(url, this.httpOptions);
+  }
+
   getClosestByWinnings(players: Player[], value: number): Player {
 
     if (!players || !players.length) return null;

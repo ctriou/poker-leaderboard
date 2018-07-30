@@ -13,6 +13,7 @@ import { NgbModal } from '../../../../node_modules/@ng-bootstrap/ng-bootstrap';
 export class PlayerLeaderboardComponent implements OnInit {
 
   @ViewChild('contentEdit') templateEdit: any;
+  @ViewChild('contentDelete') templateDelete: any;
 
   page = 1;
   pageSize = 5;
@@ -22,8 +23,13 @@ export class PlayerLeaderboardComponent implements OnInit {
 
   // make enums available in template
   country = Country;
+  countries = Object.keys(Country).filter(k => typeof Country[k] === "number");
+
+  // used for the legend showing mean and median
   meanPlayer: Player;
   medianPlayer: Player;
+  meanWinnings: number;
+  medianWinnings: number;
 
   // used for adding or editing a player
   activePlayer: Player;
@@ -32,7 +38,9 @@ export class PlayerLeaderboardComponent implements OnInit {
   constructor(
     private playerService: PlayerService,
     private mathService: MathService,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal) {
+
+  }
 
   ngOnInit() {
     this.getPlayers();
@@ -45,44 +53,59 @@ export class PlayerLeaderboardComponent implements OnInit {
 
       this.totalResults = players.length;
 
-      players.sort(function(a, b) { 
+      players.sort(function (a, b) {
         return b.winnings - a.winnings;
       });
 
       var start = (this.page - 1) * this.pageSize,
         end = start + this.pageSize;
 
-      var winnings = players.map(p => p.winnings),
-        meanWinnings = this.mathService.mean(winnings),
-        medianWinnings = this.mathService.median(winnings);
+      var winnings = players.map(p => p.winnings);
 
-      this.meanPlayer = this.playerService.getClosestByWinnings(players, meanWinnings);
-      this.medianPlayer = this.playerService.getClosestByWinnings(players, medianWinnings);
+      this.meanWinnings = this.mathService.mean(winnings),
+        this.medianWinnings = this.mathService.median(winnings);
+
+      this.meanPlayer = this.playerService.getClosestByWinnings(players, this.meanWinnings);
+      this.medianPlayer = this.playerService.getClosestByWinnings(players, this.medianWinnings);
 
       this.players = players.slice(start, end);
     });
   }
 
-  pageChange(page: number){
+  pageChange(page: number) {
     this.page = page;
     this.getPlayers();
   }
 
-  addPlayer(){
+  addPlayer() {
     this.activePlayer = new Player();
     this.activeModal = this.modalService.open(this.templateEdit, {});
   }
 
-  editPlayer(player: Player){
+  editPlayer(player: Player) {
     this.activePlayer = Object.assign({}, player);
     this.activeModal = this.modalService.open(this.templateEdit, {});
   }
 
-  saveChanges(player: Player){
+  confirmDelete(player: Player) {
+    this.activePlayer = player;
+    this.activeModal = this.modalService.open(this.templateDelete, {});
+  }
 
+  deletePlayer(player: Player) {
+    this.playerService.removePlayer(player)
+      .subscribe(
+        () => {
+          this.activeModal && this.activeModal.close();
+          this.getPlayers();
+        }
+      )
+  }
+
+  saveChanges(player: Player) {
     var request;
 
-    if (!player.id){
+    if (!player.id) {
       request = this.playerService.addPlayer(player);
     } else {
       request = this.playerService.updatePlayer(player);

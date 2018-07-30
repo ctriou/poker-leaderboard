@@ -4,5 +4,5 @@ export class Player {
     id?: number;
     name: string;
     winnings: number;
-    country: Country;
+    country: string;
   }
